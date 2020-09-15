@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent)
     setMinimumSize(QSize(800,650));
 
 
+
+
     setWindowTitle("Quiz");
 
 
@@ -126,27 +128,29 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     //setting background
-    mainBackgroundPallete.setBrush(this->backgroundRole(),QBrush(QPixmap("C:/Users/sergo/Documents/QtProjects/3156605.jpg")));
+    mainBackgroundPallete.setBrush(this->backgroundRole(),QBrush(QPixmap(":/data/app-graphics/backgroundWallpaper.jpg")));
     //this->setPalette(mainBackgroundPallete);
+
 
 
 
     mainToolBar = new QToolBar;
 
-
-
     QPixmap pixAll(":/app-graphics/allgames.png");
+
 
     pcmdAll = new QToolButton;
     pcmdAll->setToolButtonStyle(Qt::ToolButtonTextUnderIcon );
     pcmdAll->setIcon(pixAll);
     pcmdAll->setText("All");
+
     pcmdAll->setCheckable(true);
 
     QObject::connect(pcmdAll,SIGNAL(clicked()),SLOT(allGames()));
 
 
     QPixmap pixLogic(":/app-graphics/logic-games.png");
+
     pcmdLogic = new QToolButton();
     pcmdLogic->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdLogic->setIcon(pixLogic);
@@ -155,26 +159,32 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(pcmdLogic,SIGNAL(clicked()),SLOT(logicGame()));
 
+
     QPixmap pixMath(":/app-graphics/math-games.png");
+
     pcmdMath = new QToolButton;
     pcmdMath->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdMath->setIcon(pixMath);
     pcmdMath->setText("Math");
+
     pcmdMath->setCheckable(true);
 
     QObject::connect(pcmdMath,SIGNAL(clicked()),SLOT(mathGame()));
 
 
     QPixmap pixMemory(":/app-graphics/memory-games.png");
+
     pcmdMemory = new QToolButton();
     pcmdMemory->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdMemory->setIcon(pixMemory);
     pcmdMemory->setText("Memory");
     pcmdMemory->setCheckable(true);
 
+
     QObject::connect(pcmdMemory,SIGNAL(clicked()),SLOT(memoryGame()));
 
     QPixmap pixVerbal(":/app-graphics/verbal-games.png");
+
     pcmdVerbal = new QToolButton;
     pcmdVerbal->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdVerbal->setIcon(pixVerbal);
@@ -183,7 +193,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(pcmdVerbal,SIGNAL(clicked()),SLOT(verbalGame()));
 
+
     QPixmap pixPause(":/app-graphics/pause.png");
+
     pcmdPause = new QToolButton;
     pcmdPause->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdPause->setIcon(pixPause);
@@ -193,7 +205,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     QObject::connect(pcmdPause,SIGNAL(clicked()),SLOT(pause()));
 
+
     QPixmap pixEnd(":/app-graphics/endgame.png");
+
     pcmdEnd = new QToolButton;
     pcmdEnd->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     pcmdEnd->setIcon(pixEnd);
@@ -266,6 +280,7 @@ void MainWindow::answToolbarSetting()
     this->addToolBar(Qt::BottomToolBarArea,answToolbar);
 }
 
+
 void MainWindow::buttonsSetting()
 {
     if(pcmdAll->isChecked() || pcmdLogic->isChecked() || pcmdMath->isChecked() || pcmdMemory->isChecked() || pcmdVerbal->isChecked() )
@@ -319,6 +334,7 @@ void MainWindow::buttonsSetting()
 
     pPauseGameAction->setEnabled(true);
     pEndGameAction->setEnabled(true);
+
 
 }
 
@@ -380,9 +396,11 @@ void MainWindow::logicGame()
 
 void MainWindow::mathGame()
 {
+
     question();
     buttonsSetting();
     answToolbarSetting();
+
 }
 
 void MainWindow::memoryGame()

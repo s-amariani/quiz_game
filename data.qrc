@@ -1,4 +1,5 @@
 <RCC>
+
     <qresource prefix="/">
         <file>app-graphics/allgames.png</file>
         <file>app-graphics/backgroundWallpaper.jpg</file>
